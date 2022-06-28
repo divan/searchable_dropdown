@@ -78,9 +78,11 @@ DropdownSearch<String>(
         disabledItemFn: (String s) => s.startsWith('I'),
     ),
     items: ["Brazil", "Italia (Disabled)", "Tunisia", 'Canada'],
-    dropdownSearchDecoration: InputDecoration(
-        labelText: "Menu mode",
-        hintText: "country in menu mode",
+    dropdownDecoratorProps: const DropDownDecoratorProps(
+        dropdownSearchDecoration: InputDecoration(
+          labelText: "Menu mode",
+          hintText: "country in menu mode",
+        ),
     ),
     onChanged: print,
     selectedItem: "Brazil",
@@ -104,14 +106,18 @@ DropdownSearch<UserModel>(
     asyncItems: (String filter) => getData(filter),
     itemAsString: (UserModel u) => u.userAsStringByName(),
     onChanged: (UserModel? data) => print(data),
-    dropdownSearchDecoration: InputDecoration(labelText: "User by name"),
+    dropdownDecoratorProps: const DropDownDecoratorProps(
+        dropdownSearchDecoration: InputDecoration(labelText: "User by name"),
+    ),
 )
 
 DropdownSearch<UserModel>(
     asyncItems: (String filter) => getData(filter),
     itemAsString: (UserModel u) => u.userAsStringById(),
     onChanged: (UserModel? data) => print(data),
-    dropdownSearchDecoration: InputDecoration(labelText: "User by id"),
+    dropdownDecoratorProps: const DropDownDecoratorProps(
+        dropdownSearchDecoration: InputDecoration(labelText: "User by id"),
+    ),
 )
 ```
 
